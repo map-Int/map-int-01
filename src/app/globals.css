@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Official MAP Brand Colors — Clean Energy Green + MAP Tech Blue + Solar Gold */
+  --brand-primary: #0D7A3E;
+  --brand-deep: #062E1B;
+  --brand-navy: #071E3D;
+  --brand-blue: #00549A;
+  --brand-sky: #0284C7;
+  --brand-green: #16A34A;
+  --brand-yellow: #F59E0B;
+
+  /* Neutral Background & Surface — Crisp Light Sky-Tinted Surface (Blue Vibe) */
+  --background: #F5F8FC;
+  --surface: #FFFFFF;
+  --surface-blue: #EBF4FA;
+  --surface-green: #EAF5EE;
+
+  /* Text Colors — High Contrast Deep Corporate Tech Navy */
+  --text-primary: #0A1C30;
+  --text-secondary: #354C63;
+  --text-muted: #637D96;
+
+  /* UI Tokens */
+  --border: #D4E2ED;
+  --success: #16A34A;
+  --focus: #00549A;
+
+  /* Radius Tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  /* Layout */
+  --container-width: 1200px;
+  --section-spacing: 88px;
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--background);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus visible outlines */
+:focus-visible {
+  outline: 3px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0D7A3E33;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0D7A3E66;
+}
+
+/* Gestalt form group spacing & validation styles */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-block-end: 1.25rem;
+}
+
+.form-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: #FFFFFF;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(13, 122, 62, 0.18);
+  outline: none;
+}
+
+/* User-invalid CSS selector for clean error state after interaction */
+.form-input:user-invalid {
+  border-color: #DC2626;
+  background-color: #FEF2F2;
+}
+
+.form-input[aria-invalid="true"] {
+  border-color: #DC2626;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Modern Micro-Interactions & Solar Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(244, 196, 0, 0.4), 0 0 30px rgba(244, 196, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(244, 196, 0, 0.7), 0 0 50px rgba(244, 196, 0, 0.3);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes rayRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes powerFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-ray-rotate {
+  animation: rayRotate 20s linear infinite;
+}
+
+.animate-power-flow {
+  stroke-dasharray: 6 6;
+  animation: powerFlow 1.2s linear infinite;
+}
