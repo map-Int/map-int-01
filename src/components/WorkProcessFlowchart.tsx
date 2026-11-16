@@ -128,21 +128,22 @@ export const WorkProcessFlowchart: React.FC = () => {
       aria-roledescription="carousel"
       aria-label="Solar Engineering and Commissioning Process"
     >
-      {/* Flowchart Control Pipeline: Responsive Horizontal (Desktop) & Step Selector */}
+      {/* Flowchart Control Pipeline: Responsive Horizontal (Tablet & Desktop) & Step Selector */}
       <div className="relative">
-        {/* Desktop Pipeline Connector Bar (Backbone) */}
-        <div className="hidden lg:block absolute top-7 left-12 right-12 h-1 bg-blue-900/60 z-0">
+        {/* Pipeline Connector Bar (Backbone) - Visible on tablet (md: 768px+) and desktop */}
+        <div className="hidden md:block absolute top-7 left-8 right-8 lg:left-12 lg:right-12 h-1 bg-blue-900/60 z-0">
           <div
             className="h-full bg-gradient-to-r from-brand-yellow via-sky-400 to-emerald-400 transition-all duration-300"
             style={{ width: `${(activeStep / (FLOWCHART_STEPS.length - 1)) * 100}%` }}
           />
         </div>
 
-        {/* Five Interactive Stage Nodes */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 relative z-10" role="group" aria-label="Process stages">
+        {/* Five Interactive Stage Nodes: 2-col on mobile (5th spans 2), 5-col on tablet & desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4 relative z-10" role="group" aria-label="Process stages">
           {FLOWCHART_STEPS.map((s, idx) => {
             const isActive = activeStep === idx;
             const isCompleted = activeStep > idx;
+            const isLastMobile = idx === 4;
 
             return (
               <button
@@ -156,7 +157,9 @@ export const WorkProcessFlowchart: React.FC = () => {
                 onMouseLeave={() => setIsPaused(false)}
                 aria-current={isActive ? "true" : undefined}
                 aria-label={`Stage ${s.number}: ${s.title}`}
-                className={`p-4 sm:p-5 rounded-2xl text-left transition-all duration-300 relative group flex flex-col justify-between border ${
+                className={`p-3 sm:p-4 md:p-3 lg:p-5 rounded-2xl text-left transition-all duration-300 relative group flex flex-col justify-between border ${
+                  isLastMobile ? "col-span-2 md:col-span-1" : ""
+                } ${
                   isActive
                     ? "bg-gradient-to-b from-[#0B3A6E] to-[#061F3B] border-brand-yellow shadow-xl scale-[1.02] ring-2 ring-brand-yellow/30"
                     : isCompleted
@@ -170,9 +173,9 @@ export const WorkProcessFlowchart: React.FC = () => {
                 )}
 
                 {/* Top Row: Number Node Badge & Connector Indicator */}
-                <div className="flex items-center justify-between w-full mb-3">
+                <div className="flex items-center justify-between w-full mb-2.5 md:mb-2 lg:mb-3">
                   <div
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs transition-transform duration-300 ${
+                    className={`w-8 h-8 lg:w-9 lg:h-9 rounded-xl flex items-center justify-center font-black text-xs transition-transform duration-300 ${
                       isActive
                         ? "bg-brand-yellow text-brand-deep shadow-md scale-110"
                         : isCompleted
@@ -184,7 +187,7 @@ export const WorkProcessFlowchart: React.FC = () => {
                   </div>
 
                   <span
-                    className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                    className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-full uppercase tracking-wider ${
                       isActive
                         ? "bg-brand-yellow/20 text-brand-yellow border border-brand-yellow/40"
                         : "bg-white/5 text-slate-400"
@@ -197,21 +200,21 @@ export const WorkProcessFlowchart: React.FC = () => {
                 {/* Step Title & Sub-tag */}
                 <div className="space-y-1">
                   <h4
-                    className={`font-bold text-xs sm:text-sm font-sans line-clamp-2 transition-colors ${
+                    className={`font-bold text-xs md:text-[11px] lg:text-sm font-sans line-clamp-2 transition-colors leading-snug ${
                       isActive ? "text-white" : "text-slate-200 group-hover:text-white"
                     }`}
                   >
                     {language === "bn" ? s.titleBn : s.title}
                   </h4>
-                  <p className="text-[11px] text-slate-400 line-clamp-1">
+                  <p className="text-[10px] md:text-[10px] lg:text-[11px] text-slate-400 line-clamp-1">
                     {language === "bn" ? s.taglineBn : s.tagline}
                   </p>
                 </div>
 
-                {/* Forward Arrow indicator on desktop */}
+                {/* Forward Arrow indicator on tablet and desktop */}
                 {idx < FLOWCHART_STEPS.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-3 top-7 w-6 h-6 rounded-full bg-brand-deep border border-blue-600 items-center justify-center text-slate-300 z-20 pointer-events-none">
-                    <ArrowRight className="w-3 h-3" />
+                  <div className="hidden md:flex absolute -right-2.5 lg:-right-3 top-6 lg:top-7 w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-brand-deep border border-blue-600 items-center justify-center text-slate-300 z-20 pointer-events-none">
+                    <ArrowRight className="w-2.5 h-2.5 lg:w-3 lg:h-3" />
                   </div>
                 )}
               </button>

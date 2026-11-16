@@ -154,12 +154,12 @@ export const InteractiveSunSimulator: React.FC = () => {
           </p>
         </div>
 
-        {/* Weather Mode Selector Pills */}
-        <div className="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-white/10 shrink-0 self-start lg:self-center">
+        {/* Weather Mode Selector Pills (Wraps cleanly on small mobile, flex on tablet & desktop) */}
+        <div className="flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-white/10 shrink-0 self-start lg:self-center">
           <button
             type="button"
             onClick={() => setWeather("clear")}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 min-h-[38px] ${
               weather === "clear"
                 ? "bg-brand-yellow text-brand-navy shadow-lg font-black"
                 : "text-slate-300 hover:text-white hover:bg-white/10"
@@ -171,7 +171,7 @@ export const InteractiveSunSimulator: React.FC = () => {
           <button
             type="button"
             onClick={() => setWeather("clouds")}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 min-h-[38px] ${
               weather === "clouds"
                 ? "bg-white text-slate-900 shadow-lg font-black"
                 : "text-slate-300 hover:text-white hover:bg-white/10"
@@ -183,7 +183,7 @@ export const InteractiveSunSimulator: React.FC = () => {
           <button
             type="button"
             onClick={() => setWeather("monsoon")}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 min-h-[38px] ${
               weather === "monsoon"
                 ? "bg-slate-400 text-slate-950 shadow-lg font-black"
                 : "text-slate-300 hover:text-white hover:bg-white/10"
@@ -698,7 +698,7 @@ export const InteractiveSunSimulator: React.FC = () => {
             className="w-full h-3 bg-slate-800 rounded-lg cursor-pointer accent-brand-yellow focus:outline-none"
           />
 
-          {/* Quick Jump Stage Buttons */}
+          {/* Quick Jump Stage Buttons: 2-col on mobile (5th spans 2), 5-col on tablet & desktop */}
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
             {[
               { hour: 7, label: "Sunrise (7:00 AM)", labelBn: "ভোর (৭:০০)" },
@@ -706,12 +706,14 @@ export const InteractiveSunSimulator: React.FC = () => {
               { hour: 12, label: "Peak Noon (12:00 PM)", labelBn: "সর্বোচ্চ দুপুর (১২:০০)" },
               { hour: 14.5, label: "Afternoon (2:30 PM)", labelBn: "দুপুর (২:৩০)" },
               { hour: 17.5, label: "Golden Hour (5:30 PM)", labelBn: "সন্ধ্যা (৫:৩০)" },
-            ].map((p) => (
+            ].map((p, pIdx) => (
               <button
                 key={p.hour}
                 type="button"
                 onClick={() => setTimeOfDay(p.hour)}
-                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all text-center border ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all text-center border min-h-[38px] ${
+                  pIdx === 4 ? "col-span-2 sm:col-span-1" : ""
+                } ${
                   timeOfDay === p.hour
                     ? "bg-gradient-to-r from-brand-primary to-brand-green text-white border-emerald-400 shadow-lg font-black scale-[1.02]"
                     : "bg-slate-800/70 text-slate-300 border-white/10 hover:bg-slate-700/80 hover:text-white"

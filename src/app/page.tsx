@@ -111,7 +111,7 @@ export default function HomePage() {
               </div>
 
               {/* Trust perception badges (Trust, Expertise, Accessibility) */}
-              <div className="pt-6 grid grid-cols-3 gap-3 border-t border-white/15 text-xs text-slate-200">
+              <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/15 text-xs text-slate-200">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-brand-green flex-shrink-0" />
                   <div>
@@ -140,20 +140,20 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-brand-deep group">
                 {/* Real Bangladesh Solar Engineer Photograph */}
-                <div className="relative h-[380px] sm:h-[440px] w-full">
+                <div className="relative h-[340px] sm:h-[400px] md:h-[440px] w-full">
                   <Image
                     src="/images/hero-engineer.jpg"
                     alt="MAP International Power Certified Solar Engineer on Rooftop in Bangladesh"
                     fill
                     priority
-                    sizes="(max-width: 768px) 100vw, 550px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 550px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/30 to-transparent" />
                 </div>
 
                 {/* Overlaid Live Performance & Regional Hub Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-white/80 text-text-primary">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-xl border border-white/80 text-text-primary">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                     <span className="text-xs font-bold uppercase tracking-wider text-brand-primary flex items-center gap-1.5">
                       <Zap className="w-3.5 h-3.5 text-brand-yellow fill-brand-yellow" />
@@ -840,9 +840,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {/* Kurigram Regional Hub */}
-            <div className="bg-surface-blue p-8 rounded-2xl border border-emerald-200/60 shadow-card flex flex-col justify-between">
+            <div className="bg-surface-blue p-5 sm:p-6 lg:p-8 rounded-2xl border border-emerald-200/60 shadow-card flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 rounded-xl bg-brand-primary text-brand-yellow flex items-center justify-center">
@@ -893,7 +893,7 @@ export default function HomePage() {
             </div>
 
             {/* Dhaka Corporate Office */}
-            <div className="bg-[#EBF4FA] p-8 rounded-2xl border border-blue-200 shadow-card flex flex-col justify-between">
+            <div className="bg-[#EBF4FA] p-5 sm:p-6 lg:p-8 rounded-2xl border border-blue-200 shadow-card flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 rounded-xl bg-brand-blue text-white flex items-center justify-center">

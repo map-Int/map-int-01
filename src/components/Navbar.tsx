@@ -169,8 +169,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           </Link>
         </nav>
 
-        {/* Right CTA Actions (User explicit instruction: Solar Calculator in CTA + Request a Quote) */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Desktop CTA Actions (Strictly for lg screens and above: 1024px+) */}
+        <div className="hidden lg:flex items-center gap-3">
           {/* Solar Calculator CTA Button */}
           <Link
             href="/calculator"
@@ -194,36 +194,59 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           <button
             type="button"
             onClick={() => setLanguage(language === "en" ? "bn" : "en")}
-            className="px-2 py-1.5 rounded-md text-xs font-bold text-text-secondary hover:text-brand-primary hover:bg-surface-bg border border-surface-border transition-colors ml-1"
+            className="px-2.5 py-1.5 rounded-md text-xs font-bold text-text-secondary hover:text-brand-primary hover:bg-surface-bg border border-surface-border transition-colors ml-1 min-h-[36px] min-w-[36px] flex items-center justify-center"
             aria-label="Toggle language between English and Bengali"
           >
             {language === "en" ? "বাংলা" : "EN"}
           </button>
         </div>
 
-        {/* Mobile Hamburger & Actions */}
-        <div className="flex lg:hidden items-center gap-2">
+        {/* Tablet & Mobile Header Actions (Screens under 1024px: Phones & Tablets) */}
+        <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
+          {/* Tablet Consultation Quick Button (visible on md: 768px - 1023px) */}
+          <button
+            type="button"
+            onClick={onOpenQuote}
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white text-xs font-bold shadow-sm transition-all active:scale-95 min-h-[38px]"
+          >
+            <span>{t("Consultation", "পরামর্শ")}</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+
+          {/* Calculator Link: Full pill on tablet (md), icon button on mobile */}
           <Link
             href="/calculator"
-            className="p-2 rounded-lg bg-blue-50/80 text-brand-blue border border-blue-200/80"
+            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-blue-50/90 text-brand-blue border border-blue-200/80 text-xs font-bold transition-all shadow-sm active:scale-95 min-h-[38px]"
+            aria-label="Solar Calculator"
+          >
+            <Calculator className="w-4 h-4 text-brand-yellow" />
+            <span className="hidden md:inline">{t("Calculator", "ক্যালকুলেটর")}</span>
+          </Link>
+          <Link
+            href="/calculator"
+            className="sm:hidden p-2 rounded-lg bg-blue-50/80 text-brand-blue border border-blue-200/80 min-h-[40px] min-w-[40px] flex items-center justify-center"
             aria-label="Solar Calculator"
           >
             <Calculator className="w-4 h-4 text-brand-yellow" />
           </Link>
 
+          {/* Single Language Switcher for Mobile and Tablet (NO DUPLICATION!) */}
           <button
             type="button"
             onClick={() => setLanguage(language === "en" ? "bn" : "en")}
-            className="px-2 py-1.5 rounded-md text-xs font-bold bg-surface-bg text-text-primary border border-surface-border"
+            className="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-surface-bg text-text-primary border border-surface-border min-h-[38px] min-w-[38px] flex items-center justify-center hover:bg-slate-100 transition-colors"
+            aria-label="Toggle language between English and Bengali"
           >
-            {language === "en" ? "বাং" : "EN"}
+            {language === "en" ? "বাংলা" : "EN"}
           </button>
 
+          {/* Hamburger Menu Toggle Button with Minimum 44x44px Touch Target */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-text-primary hover:bg-surface-bg transition-colors"
-            aria-label="Toggle menu"
+            className="p-2 rounded-lg text-text-primary hover:bg-surface-bg transition-colors min-h-[42px] min-w-[42px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-brand-primary"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -242,14 +265,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
               <span className="text-xs font-bold text-text-muted uppercase tracking-wider block mb-2">
                 {t("Solar Solutions", "সোলার সমাধান")}
               </span>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
                 {solutionsLinks.map((sol) => (
                   <Link
                     key={sol.href}
                     href={sol.href}
-                    className="text-xs py-1.5 px-2 rounded bg-surface-bg text-text-primary hover:text-brand-primary"
+                    className="text-xs py-2 px-2.5 rounded bg-surface-bg text-text-primary hover:text-brand-primary hover:bg-surface-blue transition-colors flex items-center gap-2"
                   >
-                    {language === "bn" ? sol.titleBn : sol.title}
+                    <sol.icon className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
+                    <span>{language === "bn" ? sol.titleBn : sol.title}</span>
                   </Link>
                 ))}
               </div>
@@ -261,6 +285,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
 
             <Link href="/projects" className="py-2 text-sm font-bold text-text-primary border-b border-slate-100">
               {t("Projects Portfolio", "প্রকল্পসমূহ")}
+            </Link>
+
+            <Link href="/resources" className="py-2 text-sm font-bold text-text-primary border-b border-slate-100">
+              {t("Solar Guides & FAQs", "সোলার গাইড ও প্রশ্নোত্তর")}
             </Link>
 
             <Link

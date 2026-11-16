@@ -107,21 +107,21 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-surface-border overflow-hidden my-8"
+        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-surface-border overflow-hidden my-4 sm:my-8 max-h-[92vh] flex flex-col"
       >
         {/* Header Bar */}
-        <div className="bg-brand-primary p-6 text-white flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-yellow">
+        <div className="bg-brand-primary p-4 sm:p-6 text-white flex items-center justify-between flex-shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-yellow flex-shrink-0">
               <SunMedium className="w-5 h-5" />
             </div>
             <div>
-              <h2 id="modal-title" className="text-xl font-bold font-sans">
+              <h2 id="modal-title" className="text-lg sm:text-xl font-bold font-sans">
                 {submitted
                   ? t("Inquiry Submitted Successfully!", "আপনার তথ্য সফলভাবে পাঠানো হয়েছে!")
                   : t("Request a Free Solar Consultation", "বিনামূল্যে সোলার পরামর্শ বা কোটেশন নিন")}
               </h2>
-              <p className="text-xs text-emerald-100">
+              <p className="text-[11px] sm:text-xs text-emerald-100">
                 {t(
                   "MAP International Power • Kurigram & Rangpur Hub • Dhaka Office",
                   "ম্যাপ ইন্টারন্যাশনাল পাওয়ার • কুড়িগ্রাম ও রংপুর হাব • ঢাকা অফিস"
@@ -133,7 +133,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white flex-shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
@@ -141,7 +141,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
         {submitted ? (
           /* Confirmation Screen */
-          <div className="p-8 text-center space-y-6">
+          <div className="p-6 sm:p-8 text-center space-y-6 overflow-y-auto flex-1">
             <div className="w-16 h-16 bg-emerald-100 text-brand-green rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -186,7 +186,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
           </div>
         ) : (
           /* Input Form */
-          <form onSubmit={handleSubmit} noValidate className="p-6 md:p-8 space-y-5">
+          <form onSubmit={handleSubmit} noValidate className="p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-5 overflow-y-auto flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Full Name */}
               <div className="form-field">

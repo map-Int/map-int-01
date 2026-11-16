@@ -263,28 +263,28 @@ export default function AboutPage() {
         </section>
 
         {/* Verified Impact Metrics */}
-        <section className="bg-gradient-to-r from-[#071E3D] to-[#0A386D] text-white p-8 sm:p-10 rounded-3xl border border-blue-900 shadow-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <div className="space-y-1 pt-2 md:pt-0">
-              <span className="text-3xl sm:text-4xl font-black text-brand-yellow font-sans">25 Yrs</span>
+        <section className="bg-gradient-to-r from-[#071E3D] to-[#0A386D] text-white p-5 sm:p-8 md:p-10 rounded-3xl border border-blue-900 shadow-xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 text-center">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1 flex flex-col justify-center">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-yellow font-sans block">25 Yrs</span>
               <p className="text-xs text-slate-300 font-medium">
                 {t("Linear Performance Warranty", "লিনিয়ার পারফরম্যান্স ওয়ারেন্টি")}
               </p>
             </div>
-            <div className="space-y-1 pt-4 md:pt-0">
-              <span className="text-3xl sm:text-4xl font-black text-emerald-400 font-sans">4.85</span>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1 flex flex-col justify-center">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-emerald-400 font-sans block">4.85</span>
               <p className="text-xs text-slate-300 font-medium">
                 {t("kWh/m²/day Peak Yield Benchmark", "প্রতিদিন সৌর উৎপাদন বেঞ্চমার্ক")}
               </p>
             </div>
-            <div className="space-y-1 pt-4 md:pt-0">
-              <span className="text-3xl sm:text-4xl font-black text-sky-400 font-sans">2 Hubs</span>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1 flex flex-col justify-center">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-sky-400 font-sans block">2 Hubs</span>
               <p className="text-xs text-slate-300 font-medium">
                 {t("Kurigram Regional & Dhaka Office", "কুড়িগ্রাম ও ঢাকা রিজিওনাল সেন্টার")}
               </p>
             </div>
-            <div className="space-y-1 pt-4 md:pt-0">
-              <span className="text-3xl sm:text-4xl font-black text-amber-400 font-sans">&lt;1.0 Ω</span>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1 flex flex-col justify-center">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-amber-400 font-sans block">&lt;1.0 Ω</span>
               <p className="text-xs text-slate-300 font-medium">
                 {t("Earthing Resistance Standard", "আন্তর্জাতিক মানের নিরাপদ আর্থিং")}
               </p>
