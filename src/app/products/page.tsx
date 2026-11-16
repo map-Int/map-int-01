@@ -34,12 +34,12 @@ export default function ProductsPage() {
             <span>{t("Verified Equipment Supply", "সার্টিফাইড সোলার যন্ত্রপাতি")}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-sans tracking-tight">
-            {t("Solar Products & Components", "সোলার যন্ত্রপাতি ও সরঞ্জাম")}
+            {t("Certified Tier-1 Photovoltaic Hardware & Equipment", "সার্টিফাইড টিয়ার-১ সোলার ইকুইপমেন্ট ও হার্ডওয়্যার")}
           </h1>
           <p className="text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
             {t(
-              "Genuine Tier-1 solar modules, on-grid & hybrid inverters, LiFePO4 batteries, and heavy-duty mounting accessories with verified factory warranties.",
-              "আন্তর্জাতিক মানের সোলার প্যানেল, ইনভার্টার, লিথিয়াম ব্যাটারি ও মাউন্টিং সামগ্রী।"
+              "Zero false wattage stickers. Direct authorized allocation of genuine Bloomberg Tier-1 N-Type TopCon modules, European/Global inverters, and cyclone-rated structures with 25-year warranties.",
+              "কোনো ভুয়া স্টিকার বা রি-লেবেল করা পণ্য নয়। ফ্যাক্টরি টেস্ট সার্টিফিকেট সহ আসল ব্লুমবার্গ টিয়ার-১ টপকন প্যানেল, স্মার্ট ইনভার্টার ও লিথিয়াম ব্যাটারির বিশ্বস্ত সরবরাহ।"
             )}
           </p>
 

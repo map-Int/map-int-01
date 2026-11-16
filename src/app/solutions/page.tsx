@@ -44,12 +44,12 @@ export default function SolutionsPage() {
             <span>{t("Complete Turnkey Capabilities", "পূর্ণাঙ্গ সোলার সমাধান")}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-sans tracking-tight">
-            {t("Solar Energy Solutions", "সোলার এনার্জি সলিউশন")}
+            {t("Engineered Solar Architectures for Guaranteed Power & Savings", "নিশ্চিত বিদ্যুৎ বিল সাশ্রয় ও টেকসই সোলার আর্কিটেকচার")}
           </h1>
           <p className="text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
             {t(
-              "Engineered specifically for Bangladesh climatic conditions, roof structures, and BERC net-metering regulations. From residential homes to multi-megawatt industrial plants.",
-              "বাংলাদেশের রোদ, জলবায়ু ও সরকারি নীতিমালা অনুযায়ী প্রণীত আবাসিক, বাণিজ্যিক, শিল্পকারখানা ও কৃষিখাতের সোলার সিস্টেম।"
+              "Tailored for Bangladesh electricity tariffs, structural loads, and official utility net-metering. Explore our turnkey solutions designed to eliminate high electricity bills forever.",
+              "বাংলাদেশের বিদ্যুৎ ট্যারিফ ও সরকারি নেট-মিটারিং নীতিমালা অনুযায়ী প্রণীত। অলস ছাদকে লাভজনক সম্পদে রূপান্তর করতে আমাদের বিশেষায়িত সলিউশনসমূহ এক্সপ্লোর করুন।"
             )}
           </p>
 

@@ -180,14 +180,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
             <span>{t("Solar Calculator", "সোলার ক্যালকুলেটর")}</span>
           </Link>
 
-          {/* Primary Consultation Button */}
+          {/* Primary Consultation Button with High-Tech Energy Gradient */}
           <button
             type="button"
             onClick={onOpenQuote}
-            className="px-4 py-2 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5 active:scale-95"
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-green hover:from-brand-primary-hover hover:to-emerald-700 text-white text-xs font-black shadow-md transition-all flex items-center gap-1.5 active:scale-95 border border-emerald-400/30"
           >
             <span>{t("Free Consultation", "পরামর্শ নিন")}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-brand-yellow" />
           </button>
 
           {/* Clean Language Switcher */}
